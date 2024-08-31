@@ -26,9 +26,9 @@ let distanceConversion = (distance = 0, from = "", to = "") => {
   // First, lets handle some errors
   if (isNaN(distance)) {
     return "Error: Distance, needs to be a number";
-  } else if (typeof from != "string" || typeof to != "string") {
+  } else if (typeof from !== "string" || typeof to !== "string") {
     return "Error: The type of From, and To parameters, has to be string";
-  } else if (from.length == 0 || to.length == 0) {
+  } else if (from.length === 0 || to.length === 0) {
     return "Error: You need to set a value for From and To";
   }
   // Now, lets make the logic
