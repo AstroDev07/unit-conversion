@@ -22,7 +22,7 @@ console.log("Unit Converter:")
         km ==> kilometer
 
 */
-let distanceConversion = (distance, from, to) => {
+let distanceConversion = (distance=0, from='', to='') => {
     // First, lets handle some errors
     if(isNaN(distance)){
         console.error("Distance, needs to be a number")
@@ -30,6 +30,9 @@ let distanceConversion = (distance, from, to) => {
     }
     else if(typeof(from)!='string' || typeof(to)!='string'){
         console.error("The type of From, and To parameters, has to be string")
+    }
+    else if(from.length==0 || to.length==0){
+        console.error('You need to set a value for From and To')
     }
     // Now, lets make the logic
     else{
@@ -63,4 +66,4 @@ let distanceConversion = (distance, from, to) => {
     }
 };
 
-distanceConversion(1, 'm', 'mm')
+distanceConversion(2, 'm', 'cm')
