@@ -25,12 +25,11 @@ console.log("Unit Converter:");
 let distanceConversion = (distance = 0, from = "", to = "") => {
   // First, lets handle some errors
   if (isNaN(distance)) {
-    console.error("Distance, needs to be a number");
-    return 1;
+    return "Error: Distance, needs to be a number";
   } else if (typeof from != "string" || typeof to != "string") {
-    console.error("The type of From, and To parameters, has to be string");
+    return "Error: The type of From, and To parameters, has to be string";
   } else if (from.length == 0 || to.length == 0) {
-    console.error("You need to set a value for From and To");
+    return "Error: You need to set a value for From and To";
   }
   // Now, lets make the logic
   else {
@@ -45,7 +44,7 @@ let distanceConversion = (distance = 0, from = "", to = "") => {
         divideBy += "0";
       }
 
-      console.log(`${distance}${from} are ${distance / divideBy}${to}`);
+      return Number(`${distance / divideBy}`);
     } else if (units.indexOf(from) > units.indexOf(to)) {
       // we have to divide
       let howManyZeroes = units.indexOf(from) - units.indexOf(to);
@@ -54,12 +53,12 @@ let distanceConversion = (distance = 0, from = "", to = "") => {
         multiplyBy += "0";
       }
 
-      console.log(`${distance}${from} are ${distance * multiplyBy}${to}`);
+      return Number(`${distance * multiplyBy}`);
     } else {
       //we dont need to do nothing, from and to have the same value
-      console.error("From and To have to be different");
+      return "From and To have to be different";
     }
   }
 };
 
-distanceConversion(2, "m", "cm");
+console.log(distanceConversion(2, "m", "cm"));
